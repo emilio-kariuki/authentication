@@ -3,11 +3,14 @@
 import 'package:authentication/Constants/colors.dart';
 import 'package:authentication/build/build_container.dart';
 import "package:flutter/material.dart";
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomBox extends StatelessWidget {
   final Function() func;
   final String iconUrl;
-  const CustomBox({Key? key, required this.func, required this.iconUrl}) : super(key: key);
+  final String action;
+  const CustomBox({Key? key, required this.func, required this.iconUrl, required this.action})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +19,12 @@ class CustomBox extends StatelessWidget {
         onTap: func,
         child: BuildContainer(
           color: kprimaryColor,
-          child: Image.asset(iconUrl, color: Colors.white),
+          child: Row(
+            children: [
+              Text(action,style: GoogleFonts.robotoCondensed(fontSize: 20,color: kTextColor)),
+              Image.asset(iconUrl, color: Colors.white),
+            ],
+          ),
         ),
       ),
     );
