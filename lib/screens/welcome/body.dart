@@ -4,9 +4,9 @@ import 'package:authentication/Constants/colors.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_svg/flutter_svg.dart';
 
-class Welcome extends StatelessWidget {
+class BackGround extends StatelessWidget {
   final Widget child;
-  const Welcome({Key? key, required this.child}) : super(key: key);
+  const BackGround({Key? key, required this.child}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,12 +25,6 @@ class Welcome extends StatelessWidget {
                 top: 0,
                 right: 0,
                 child: Image.asset("assets/main_top.png",
-                    color: const Color.fromARGB(255, 24, 194, 52),
-                    height: 130)),
-            Positioned(
-                bottom: 0,
-                left: 0,
-                child: Image.asset("assets/main_bottom.png",
                     color: const Color.fromARGB(255, 24, 194, 52),
                     height: 130)),
             Positioned(
