@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_unnecessary_containers
+
 import 'package:authentication/Constants/colors.dart';
 import 'package:authentication/build/build_container.dart';
 import "package:flutter/material.dart";
@@ -10,9 +12,12 @@ class CustomBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: BuildContainer(
-        color: kprimaryColor,
-        child: Image.asset(iconUrl, color: Colors.white),
+      child: GestureDetector(
+        onTap: func,
+        child: BuildContainer(
+          color: kprimaryColor,
+          child: Image.asset(iconUrl, color: Colors.white),
+        ),
       ),
     );
   }
