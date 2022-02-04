@@ -15,7 +15,17 @@ class Welcome extends StatefulWidget {
 class _WelcomeState extends State<Welcome> {
   @override
   Widget build(BuildContext context) {
-    return const BackGround(
-      child: const Center(child: Text("Emilio"),));
+    final mediaQuery = MediaQuery.of(context).size;
+    return BackGround(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(50.0),
+            child: Column(
+      children: [
+            SvgPicture.asset("assets/svg/chat.svg",height: mediaQuery.height * 0.4),
+      ],
+    ),
+          ),
+        ));
   }
 }
