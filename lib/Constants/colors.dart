@@ -2,7 +2,7 @@ import "package:flutter/material.dart";
 
 const Color kprimaryColor = Color.fromRGBO(7, 7, 37, 1);
 
-const Color kaccentColor = Color.fromRGBO(25, 35, 50, 1);
+const Color kaccentColor = Color.fromARGB(255, 220, 223, 228);
 
 const Color kbottonColor = Color.fromRGBO(234, 78, 74, 1);
 
