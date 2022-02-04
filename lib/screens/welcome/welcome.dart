@@ -5,6 +5,7 @@ import 'package:authentication/build/custom_button.dart';
 import 'package:authentication/screens/welcome/body.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Welcome extends StatefulWidget {
   const Welcome({Key? key}) : super(key: key);
@@ -23,6 +24,10 @@ class _WelcomeState extends State<Welcome> {
             padding: const EdgeInsets.all(50.0),
             child: Column(
       children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("Welcome",style: GoogleFonts.robotoCondensed(fontSize: 25, color: Colors.white)),
+            ),
             SvgPicture.asset("assets/svg/chat.svg",height: mediaQuery.height * 0.4),
             const SizedBox(height: 60),
             CustomButton(
