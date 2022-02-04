@@ -24,9 +24,14 @@ class _WelcomeState extends State<Welcome> {
             child: Column(
       children: [
             SvgPicture.asset("assets/svg/chat.svg",height: mediaQuery.height * 0.4),
+            const SizedBox(height: 60),
             CustomButton(
               func: (){},
-              action: "Register")
+              action: "Register"),
+            const SizedBox(height: 15,),
+            CustomButton(
+              func: (){},
+              action: "Login")
       ],
     ),
           ),

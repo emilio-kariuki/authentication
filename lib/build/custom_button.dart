@@ -17,7 +17,7 @@ class CustomButton extends StatelessWidget {
     return Container(
       child: GestureDetector(
         onTap: func,
-        child: BuildButton(color: kaccentColor, child: Text(action,style: GoogleFonts.roboto(fontSize:27,color: kprimaryColor))),
+        child: BuildButton(color: kaccentColor, child: Center(child: Text(action,style: GoogleFonts.robotoCondensed(fontSize:22.1,color: kprimaryColor,fontWeight: FontWeight.bold)))),
       ),
     );
   }

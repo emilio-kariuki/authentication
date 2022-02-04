@@ -16,7 +16,7 @@ class BuildButton extends StatelessWidget {
         width: mediaQuery.width ,
         decoration: BoxDecoration(
           color: color,
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(20),
         ),
         padding: const EdgeInsets.all(12),
         child: child,
