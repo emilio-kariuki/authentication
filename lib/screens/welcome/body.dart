@@ -30,11 +30,11 @@ class _WelcomeState extends State<Welcome> {
               Positioned(
               bottom: 0,
               left: 0,
-              child: Image.asset("assets/main_top.png",color: const Color.fromARGB(255, 24, 194, 52),height: 130)),
+              child: Image.asset("assets/main_bottom.png",color: const Color.fromARGB(255, 24, 194, 52),height: 130)),
               Positioned(
               bottom: 0,
               right: 0,
-              child: Image.asset("assets/main_top.png",color: const Color.fromARGB(255, 24, 194, 52),height: 130))
+              child: Image.asset("assets/login_bottom.png",color: const Color.fromARGB(255, 24, 194, 52),height: 130))
           ],
         ),
       ),
