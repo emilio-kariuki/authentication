@@ -21,7 +21,7 @@ class CustomBox extends StatelessWidget {
           color: kprimaryColor,
           child: Row(
             children: [
-              Text(action,style: GoogleFonts.robotoCondensed(fontSize: 20,color: kTextColor)),
+              Text(action,style: GoogleFonts.robotoCondensed(fontSize: 10,color: kTextColor)),
               Image.asset(iconUrl, color: Colors.white),
             ],
           ),
