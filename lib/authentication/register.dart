@@ -1,5 +1,6 @@
 // ignore_for_file: unnecessary_const, prefer_const_constructors
 
+import 'package:authentication/Constants/colors.dart';
 import 'package:authentication/authentication/login.dart';
 import 'package:authentication/build/custom_box.dart';
 import "package:flutter/material.dart";
@@ -16,6 +17,7 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kprimaryColor,
       body: SafeArea(
           child: Column(
         children: [
