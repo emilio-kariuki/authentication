@@ -9,10 +9,8 @@ class BuildButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context).size;
-    return Padding(
-       padding: const EdgeInsets.fromLTRB(0, 0, 0,0),
-      child: Container(
-        height: 45,
+    return Container(
+        height: 50,
         width: mediaQuery.width ,
         decoration: BoxDecoration(
           color: color,
@@ -20,7 +18,6 @@ class BuildButton extends StatelessWidget {
         ),
         padding: const EdgeInsets.all(12),
         child: child,
-      ),
     );
   }
 }
