@@ -1,8 +1,9 @@
+import 'package:authentication/screens/welcome/welcome.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MaterialApp(
-    // home: Welcome(),
+     home: Welcome(),
     debugShowCheckedModeBanner: false,
   ));
 }
