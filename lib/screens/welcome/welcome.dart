@@ -25,11 +25,11 @@ class _WelcomeState extends State<Welcome> {
             child: Column(
       children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text("Welcome",style: GoogleFonts.robotoCondensed(fontSize: 25, color: Colors.white)),
+              padding: const EdgeInsets.fromLTRB(17, 0, 0, 0),
+              child: Text("Welcome",style: GoogleFonts.robotoCondensed(fontSize: 35, color: Colors.white)),
             ),
             SvgPicture.asset("assets/svg/chat.svg",height: mediaQuery.height * 0.4),
-            const SizedBox(height: 60),
+            const SizedBox(height: 40),
             CustomButton(
               func: (){},
               action: "Register"),
