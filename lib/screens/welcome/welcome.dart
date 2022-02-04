@@ -1,6 +1,7 @@
 // ignore_for_file: unnecessary_const
 
 import 'package:authentication/Constants/colors.dart';
+import 'package:authentication/build/custom_button.dart';
 import 'package:authentication/screens/welcome/body.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_svg/flutter_svg.dart';
@@ -23,6 +24,9 @@ class _WelcomeState extends State<Welcome> {
             child: Column(
       children: [
             SvgPicture.asset("assets/svg/chat.svg",height: mediaQuery.height * 0.4),
+            CustomButton(
+              func: (){},
+              action: "Register")
       ],
     ),
           ),
