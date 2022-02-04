@@ -1,6 +1,8 @@
 // ignore_for_file: unnecessary_const
 
 import 'package:authentication/Constants/colors.dart';
+import 'package:authentication/authentication/login.dart';
+import 'package:authentication/authentication/register.dart';
 import 'package:authentication/build/custom_button.dart';
 import 'package:authentication/screens/welcome/body.dart';
 import "package:flutter/material.dart";
@@ -20,26 +22,39 @@ class _WelcomeState extends State<Welcome> {
     final mediaQuery = MediaQuery.of(context).size;
     return BackGround(
         child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(50.0),
-            child: Column(
-      children: [
+      child: Padding(
+        padding: const EdgeInsets.all(50.0),
+        child: Column(
+          children: [
             Padding(
               padding: const EdgeInsets.fromLTRB(17, 0, 0, 0),
-              child: Text("Welcome",style: GoogleFonts.robotoCondensed(fontSize: 35, color: Colors.white)),
+              child: Text("Welcome",
+                  style: GoogleFonts.robotoCondensed(
+                      fontSize: 35, color: Colors.white)),
             ),
-            SvgPicture.asset("assets/svg/chat.svg",height: mediaQuery.height * 0.4),
+            SvgPicture.asset("assets/svg/chat.svg",
+                height: mediaQuery.height * 0.4),
             const SizedBox(height: 40),
             CustomButton(
-              func: (){},
-              action: "Register"),
-            const SizedBox(height: 15,),
-            CustomButton(
-              func: (){},
-              action: "Login")
-      ],
-    ),
-          ),
-        ));
+                func: () {
+                  setState(() {
+                    Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (context) => Register()));
+                  });
+                },
+                action: "Register"),
+            const SizedBox(
+              height: 15,
+            ),
+            CustomButton(func: () {
+              setState(() {
+                    Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (context) => Login()));
+                  });
+            }, action: "Login")
+          ],
+        ),
+      ),
+    ));
   }
 }
