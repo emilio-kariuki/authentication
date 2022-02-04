@@ -10,7 +10,7 @@ class BuildButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context).size;
     return Padding(
-      padding: const EdgeInsets.fromLTRB(10, 0, 10,0),
+      padding: const EdgeInsets.fromLTRB(7, 0, 7,0),
       child: Container(
         height: 45,
         width: mediaQuery.width ,
