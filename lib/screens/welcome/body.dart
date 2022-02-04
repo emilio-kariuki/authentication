@@ -19,19 +19,20 @@ class BackGround extends StatelessWidget {
                 top: 0,
                 left: 0,
                 child: Image.asset("assets/main_top.png",
-                    color: const Color.fromARGB(255, 24, 194, 52),
-                    height: 130)),
+                    color: Color.fromARGB(255, 227, 236, 229),
+                    height: 170)),
             Positioned(
-                top: 0,
-                right: 0,
-                child: Image.asset("assets/main_top.png",
-                    color: const Color.fromARGB(255, 24, 194, 52),
-                    height: 130)),
+                bottom: 0,
+                left: 0,
+                child: Image.asset("assets/main_bottom.png",
+                    color: Color.fromARGB(255, 227, 236, 229),
+                    height: 150)),
             Positioned(
                 bottom: 0,
                 right: 0,
                 child: Image.asset("assets/login_bottom.png",
-                    color: const Color.fromARGB(255, 24, 194, 52), height: 130))
+                    color: Color.fromARGB(255, 147, 150, 148),
+                    height: 150))
           ],
         ),
       ),
