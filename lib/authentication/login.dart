@@ -14,19 +14,22 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: Column(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
         children: [
-          CustomBox(
-              func: () {
-                setState(() {
-                  Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => Register()));
-                });
-              },
-              iconUrl: 'assets/icons/register.png',
-              action: "Register")
+            CustomBox(
+                func: () {
+                  setState(() {
+                    Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (context) => Register()));
+                  });
+                },
+                iconUrl: 'assets/icons/register.png',
+                action: "Register")
         ],
-      )),
+      ),
+          )),
     );
   }
 }
