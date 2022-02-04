@@ -22,7 +22,7 @@ class _LoginState extends State<Login> {
                 func: () {
                   setState(() {
                     Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (context) => Register()));
+                        MaterialPageRoute(builder: (context) => const Register()));
                   });
                 },
                 iconUrl: 'assets/icons/register.png',

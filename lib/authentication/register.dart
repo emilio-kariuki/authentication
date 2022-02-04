@@ -27,7 +27,7 @@ class _RegisterState extends State<Register> {
                 });
               },
               iconUrl: 'assets/icons/login.png',
-              action: "Register")
+              action: "Login")
         ],
       )),
     );
