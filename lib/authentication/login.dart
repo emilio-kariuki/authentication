@@ -16,17 +16,19 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  final name = TextEditingController();
+  final email = TextEditingController();
+  final password = TextEditingController();
+  
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context).size;
-    return SingleChildScrollView(
-      child: Scaffold(
-        backgroundColor: kprimaryColor,
-        body: SafeArea(
+    return Scaffold(
+      backgroundColor: kprimaryColor,
+      body: SafeArea(
+          child: SingleChildScrollView(
             child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
             children: [
               Row(
                 // mainAxisSize: MainAxisSize.min,
@@ -83,7 +85,7 @@ class _LoginState extends State<Login> {
                       hintText: "Email",
                       prefixIcon: const Icon(Icons.mail, color: kprimaryColor,size: 20),
                       fillColor: Colors.grey[200]),
-                  controller: name,
+                  controller: email,
                 ),
               ),
               Padding(
@@ -100,7 +102,7 @@ class _LoginState extends State<Login> {
                       hintText: "Password",
                       prefixIcon: const Icon(Icons.lock, color: kprimaryColor, size: 20),
                       fillColor: Colors.grey[200]),
-                  controller: name,
+                  controller: password,
                 ),
               ),
               Padding(
@@ -145,9 +147,9 @@ class _LoginState extends State<Login> {
               ),
               
             ],
-          ),
-        )),
-      ),
+                  ),
+                ),
+          )),
     );
   }
 }
