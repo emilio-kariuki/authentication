@@ -65,7 +65,23 @@ class _LoginState extends State<Login> {
                 height: mediaQuery.height * 0.2,
               )),
             ),
-
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
+              child: TextFormField(
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                    ),
+                    // icon: Icon(Icons.person,size:30,color: Colors.black),
+                    filled: true,
+                    hintStyle: TextStyle(color: Colors.grey[800]),
+                    focusColor: Colors.red,
+                    hintText: "Name",
+                    prefixIcon: Icon(Icons.person, color: Colors.blueGrey[900],size: 20),
+                    fillColor: Colors.grey[200]),
+                controller: name,
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
               child: TextFormField(
@@ -78,7 +94,7 @@ class _LoginState extends State<Login> {
                     hintStyle: TextStyle(color: Colors.grey[800]),
                     focusColor: Colors.red,
                     hintText: "Email",
-                    prefixIcon: Icon(Icons.mail, color: Colors.blueGrey[900]),
+                    prefixIcon: Icon(Icons.person, color: Colors.blueGrey[900]),
                     fillColor: Colors.grey[200]),
                 controller: name,
               ),
