@@ -8,15 +8,20 @@ class BuildCircle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 30,
-      width: 30,
-      // ignore: prefer_const_constructors
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        border: Border.all(width: 2,color: kaccentColor)
+    return Padding(
+      padding: const EdgeInsets.only(left: 8,right:8),
+      child: Container(
+        height: 45,
+        width: 45,
+        padding: const EdgeInsets.all(15),
+        margin: const EdgeInsets.symmetric(horizontal: 10),
+        // ignore: prefer_const_constructors
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          border: Border.all(width: 1,color: kaccentColor)
+        ),
+        child: SvgPicture.asset(svgUrl,height: 20,width: 20),
       ),
-      child: SvgPicture.asset(svgUrl),
     );
   }
 }
