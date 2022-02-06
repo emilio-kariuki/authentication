@@ -96,13 +96,34 @@ class Auth {
         user = userCredential.user;
       } on FirebaseAuthException catch (e) {
         if (e.code == 'account-exists-with-different-credential') {
-          // handle the error here
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            elevation: 10,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            content: (Text("Account exists with differetn credentials ",
+                style: GoogleFonts.roboto(fontSize: 19, color: kaccentColor))),
+            backgroundColor: const Color.fromARGB(255, 165, 123, 32),
+            duration: const Duration(milliseconds: 900)));
         }
         else if (e.code == 'invalid-credential') {
-          // handle the error here
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            elevation: 10,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            content: (Text("Invalid credentials",
+                style: GoogleFonts.roboto(fontSize: 19, color: kaccentColor))),
+            backgroundColor: const Color.fromARGB(255, 165, 123, 32),
+            duration: const Duration(milliseconds: 900)));
         }
       } catch (e) {
-        // handle the error here
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            elevation: 10,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            content: (Text("Error occured during google sign in please try again",
+                style: GoogleFonts.roboto(fontSize: 19, color: kaccentColor))),
+            backgroundColor: const Color.fromARGB(255, 165, 123, 32),
+            duration: const Duration(milliseconds: 900)));
       }
     }
 
