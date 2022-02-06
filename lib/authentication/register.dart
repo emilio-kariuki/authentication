@@ -115,8 +115,6 @@ class _RegisterState extends State<Register> {
                 child: TextFormField(
                   controller: password,
                   decoration: InputDecoration(
-                      errorText:
-                          isUserNameValidate ? 'Please enter a Username' : null,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30.0),
                       ),
