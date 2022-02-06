@@ -11,7 +11,7 @@ class BuildField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(10, 4, 10, 0),
       child: Container(
-        height: 45,
+        height: 60,
         width: mediaQuery.width,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),

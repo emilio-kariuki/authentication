@@ -20,7 +20,7 @@ class CustomField extends StatelessWidget {
           decoration: InputDecoration(
             hintStyle: GoogleFonts.roboto(fontSize: 20, color: kTextColor),
             hintText: "password",
-            prefixIcon: Image.asset(iconUrl, color: kprimaryColor,height: 5 ,width: 10),
+            prefixIcon: Image.asset(iconUrl, color:kprimaryColor),
           ),
         ),
       ),
