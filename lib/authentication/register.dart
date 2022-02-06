@@ -130,7 +130,10 @@ class _RegisterState extends State<Register> {
               Padding(
                 padding: const EdgeInsets.only(
                     left: 70, right: 70, top: 20, bottom: 10),
-                child: CustomButton(func: () {}, action: "Register"),
+                child: CustomButton(func: () {
+                  
+                }, 
+                action: "Register"),
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 10),
