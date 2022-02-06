@@ -8,12 +8,14 @@ import 'package:google_fonts/google_fonts.dart';
 
 class Auth {
   FirebaseAuth auth = FirebaseAuth.instance;
+  User? user = FirebaseAuth.instance.currentUser;
 
   //Register user
   Future register(String email, String password, BuildContext context) async {
     try {
       UserCredential userCredential = await auth.createUserWithEmailAndPassword(
           email: email, password: password);
+          await user?.sendEmailVerification();
       return userCredential;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
