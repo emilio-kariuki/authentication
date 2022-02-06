@@ -7,19 +7,20 @@ import 'package:google_fonts/google_fonts.dart';
 
 class CustomField extends StatelessWidget {
   final String iconUrl;
-  final TextEditingController name;
-  const CustomField({Key? key, required this.name, required this.iconUrl}) : super(key: key);
+   final  action = TextEditingController();
+  CustomField({Key? key, required this.iconUrl}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context).size;
     return Container(
       child: BuildField(
         child: TextFormField(
-          controller: name,
+          controller: action,
           decoration: InputDecoration(
             hintStyle: GoogleFonts.roboto(fontSize: 20, color: kTextColor),
             hintText: "password",
-            prefixIcon: Image.asset(iconUrl, color: kprimaryColor),
+            prefixIcon: Image.asset(iconUrl, color: kprimaryColor,height: 5 ,width: 10),
           ),
         ),
       ),

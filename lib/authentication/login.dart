@@ -1,6 +1,7 @@
 import 'package:authentication/Constants/colors.dart';
 import 'package:authentication/authentication/register.dart';
 import 'package:authentication/build/custom_box.dart';
+import 'package:authentication/build/fields/custom_field.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -56,7 +57,7 @@ class _LoginState extends State<Login> {
               ],
             ),
             Center(child: SvgPicture.asset("assets/svg/login.svg",height: mediaQuery.height * 0.2,)),
-            
+            CustomField( iconUrl: "assets/icons/person.png")
           ],
         ),
       )),
