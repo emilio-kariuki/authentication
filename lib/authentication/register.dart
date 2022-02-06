@@ -146,9 +146,6 @@ class _RegisterState extends State<Register> {
                     left: 70, right: 70, top: 20, bottom: 10),
                 child: CustomButton(
                     func: () async {
-                      final form = formKey.currentState!;
-
-                      if (form.validate()) {
                         setState(() async {
                           if (name.text == "" &&
                               email.text == "" &&
@@ -169,7 +166,6 @@ class _RegisterState extends State<Register> {
                           }
                         });
                         print("Clicked");
-                      }
                     },
                     action: "Register"),
               ),
