@@ -87,9 +87,11 @@ class _RegisterState extends State<Register> {
                 padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
                 child: TextFormField(
                   decoration: InputDecoration(
-                    suffixIcon: IconButton(icon: Icon(Icons.close,color: kprimaryColor),onPressed: () => name.clear(),),
+                      suffixIcon: IconButton(
+                        icon: Icon(Icons.close, color: kprimaryColor),
+                        onPressed: () => name.clear(),
+                      ),
                       border: OutlineInputBorder(
-
                         borderRadius: BorderRadius.circular(30.0),
                       ),
                       // icon: Icon(Icons.person,size:30,color: Colors.black),
@@ -112,7 +114,10 @@ class _RegisterState extends State<Register> {
                           ? "Enter a valid Email"
                           : null,
                   decoration: InputDecoration(
-                    suffixIcon: IconButton(icon: Icon(Icons.close,color: kprimaryColor),onPressed: () => email.clear(),),
+                      suffixIcon: IconButton(
+                        icon: Icon(Icons.close, color: kprimaryColor),
+                        onPressed: () => email.clear(),
+                      ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30.0),
                       ),
@@ -132,7 +137,10 @@ class _RegisterState extends State<Register> {
                 child: TextFormField(
                   controller: password,
                   decoration: InputDecoration(
-                    suffixIcon: IconButton(icon: Icon(Icons.close,color: kprimaryColor),onPressed: () => password.clear(),),
+                      suffixIcon: IconButton(
+                        icon: Icon(Icons.close, color: kprimaryColor),
+                        onPressed: () => password.clear(),
+                      ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30.0),
                       ),
@@ -151,26 +159,26 @@ class _RegisterState extends State<Register> {
                     left: 70, right: 70, top: 20, bottom: 10),
                 child: CustomButton(
                     func: () async {
-                        setState(() async {
-                          if (name.text == "" &&
-                              email.text == "" &&
-                              password.text == "") {
-                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                                elevation: 10,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20)),
-                                content: (Text("The fields cannot be empty",
-                                    style: GoogleFonts.roboto(
-                                        fontSize: 19, color: kaccentColor))),
-                                backgroundColor:
-                                    Color.fromARGB(255, 165, 123, 32),
-                                duration: Duration(milliseconds: 900)));
-                          } else {
-                            Auth().register(email.text, password.text, context);
-                            print("successful");
-                          }
-                        });
-                        print("Clicked");
+                      setState(() async {
+                        if (name.text == "" &&
+                            email.text == "" &&
+                            password.text == "") {
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              elevation: 10,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20)),
+                              content: (Text("The fields cannot be empty",
+                                  style: GoogleFonts.roboto(
+                                      fontSize: 19, color: kaccentColor))),
+                              backgroundColor:
+                                  Color.fromARGB(255, 165, 123, 32),
+                              duration: Duration(milliseconds: 900)));
+                        } else {
+                          Auth().register(email.text, password.text, context);
+                          print("successful");
+                        }
+                      });
+                      print("Clicked");
                     },
                     action: "Register"),
               ),
@@ -209,7 +217,9 @@ class _RegisterState extends State<Register> {
                 children: [
                   BuildCircle(
                     svgUrl: "assets/svg/google.svg",
-                    func: () {},
+                    func: () {
+                      Auth.signInWithGoogle(context: context);
+                    },
                   ),
                   BuildCircle(
                     svgUrl: "assets/svg/facebook-main.svg",
@@ -237,11 +247,9 @@ class _RegisterState extends State<Register> {
                 },
               ),
             ],
-            
           ),
         ),
       )),
-      
     );
   }
 
