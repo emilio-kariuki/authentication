@@ -18,7 +18,7 @@ class CustomBox extends StatelessWidget {
       child: GestureDetector(
         onTap: func,
         child: BuildContainer(
-          color: kprimaryColor,
+          color: kaccentColor,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
