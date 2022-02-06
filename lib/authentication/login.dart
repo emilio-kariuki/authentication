@@ -7,6 +7,7 @@ import 'package:authentication/build/fields/custom_field.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import "package:firebase_auth/firebase_auth.dart";
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -18,7 +19,8 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   final email = TextEditingController();
   final password = TextEditingController();
-  
+  FirebaseAuth auth = FirebaseAuth.instance;
+
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context).size;
@@ -26,9 +28,9 @@ class _LoginState extends State<Login> {
       backgroundColor: kprimaryColor,
       body: SafeArea(
           child: SingleChildScrollView(
-            child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
             children: [
               Row(
                 // mainAxisSize: MainAxisSize.min,
@@ -67,7 +69,7 @@ class _LoginState extends State<Login> {
                   style: GoogleFonts.robotoCondensed(
                       fontSize: 23, color: Colors.white)),
               Padding(
-                padding: const EdgeInsets.only(bottom: 40,top: 10),
+                padding: const EdgeInsets.only(bottom: 40, top: 10),
                 child: Center(
                     child: SvgPicture.asset(
                   "assets/svg/login.svg",
@@ -86,7 +88,8 @@ class _LoginState extends State<Login> {
                       hintStyle: TextStyle(color: Colors.grey[800]),
                       focusColor: Colors.red,
                       hintText: "Email",
-                      prefixIcon: const Icon(Icons.mail, color: kprimaryColor,size: 20),
+                      prefixIcon: const Icon(Icons.mail,
+                          color: kprimaryColor, size: 20),
                       fillColor: Colors.grey[200]),
                   controller: email,
                 ),
@@ -103,14 +106,36 @@ class _LoginState extends State<Login> {
                       hintStyle: TextStyle(color: Colors.grey[800]),
                       focusColor: Colors.red,
                       hintText: "Password",
-                      prefixIcon: const Icon(Icons.lock, color: kprimaryColor, size: 20),
+                      prefixIcon: const Icon(Icons.lock,
+                          color: kprimaryColor, size: 20),
                       fillColor: Colors.grey[200]),
                   controller: password,
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left:70,right:70,top: 40,bottom: 10),
-                child: CustomButton(func: (){}, action: "Login"),
+                padding: const EdgeInsets.only(
+                    left: 70, right: 70, top: 40, bottom: 10),
+                child: CustomButton(
+                    func: () {
+                      setState(() {
+                        if (email.text == "" && password.text == "") {
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              elevation: 10,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20)),
+                              content: (Text("The fields cannot be empty",
+                                  style: GoogleFonts.roboto(
+                                      fontSize: 19, color: kaccentColor))),
+                              backgroundColor:
+                                  const Color.fromARGB(255, 165, 123, 32),
+                              duration: const Duration(milliseconds: 900)));
+                        } else {
+                          auth.signInWithEmailAndPassword(
+                              email: email.text, password: password.text);
+                        }
+                      });
+                    },
+                    action: "Login"),
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 10),
@@ -126,7 +151,9 @@ class _LoginState extends State<Login> {
                         color: kaccentColor,
                       ),
                     )),
-                    Text("OR",style: GoogleFonts.roboto(fontSize: 20,color: kaccentColor)),
+                    Text("OR",
+                        style: GoogleFonts.roboto(
+                            fontSize: 20, color: kaccentColor)),
                     Expanded(
                         child: Container(
                       margin: const EdgeInsets.only(left: 15, right: 10),
@@ -143,16 +170,24 @@ class _LoginState extends State<Login> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 // ignore: prefer_const_literals_to_create_immutables
                 children: [
-                   BuildCircle(svgUrl: "assets/svg/google.svg", func: () {  },),
-                   BuildCircle(svgUrl: "assets/svg/facebook-main.svg", func: () {  },),
-                   BuildCircle(svgUrl: "assets/svg/twitter-main.svg", func: () {  },)
+                  BuildCircle(
+                    svgUrl: "assets/svg/google.svg",
+                    func: () {},
+                  ),
+                  BuildCircle(
+                    svgUrl: "assets/svg/facebook-main.svg",
+                    func: () {},
+                  ),
+                  BuildCircle(
+                    svgUrl: "assets/svg/twitter-main.svg",
+                    func: () {},
+                  )
                 ],
               ),
-              
             ],
-                  ),
-                ),
-          )),
+          ),
+        ),
+      )),
     );
   }
 }
