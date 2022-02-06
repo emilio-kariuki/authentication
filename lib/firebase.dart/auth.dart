@@ -9,7 +9,7 @@ class Auth {
 
   //Register user
   Future<User?> register(
-      String email, String password, BuildContext context) async {
+      String name, String email, String password, BuildContext context) async {
     try {
       UserCredential userCredential = await auth.createUserWithEmailAndPassword(
           email: email, password: password);
