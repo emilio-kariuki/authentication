@@ -20,6 +20,7 @@ class _RegisterState extends State<Register> {
   final name = TextEditingController();
   final email = TextEditingController();
   final password = TextEditingController();
+  bool isUserNameValidate = false;
 
   @override
   Widget build(BuildContext context) {
@@ -114,6 +115,8 @@ class _RegisterState extends State<Register> {
                 child: TextFormField(
                   controller: password,
                   decoration: InputDecoration(
+                      errorText:
+                          isUserNameValidate ? 'Please enter a Username' : null,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30.0),
                       ),
