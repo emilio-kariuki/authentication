@@ -45,28 +45,39 @@ class Auth {
     }
   }
 
-  Future<User?> login(
+  Future login(
       String email, String password, BuildContext context) async {
     try {
-      UserCredential userCredential = await auth.signInWithEmailAndPassword(
-          email: email, password: password);
-      return userCredential.user;
+      UserCredential userCredential = await auth
+          .signInWithEmailAndPassword(email: email, password: password);
+      return userCredential;
     } on FirebaseAuthException catch (e) {
-      print(e);
+      if (e.code == 'weak-password') {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            elevation: 10,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20)),
+            content: (Text("The password is to weak",
+                style: GoogleFonts.roboto(
+                    fontSize: 19, color: kaccentColor))),
+            backgroundColor:
+                const Color.fromARGB(255, 165, 123, 32),
+            duration: const Duration(milliseconds: 900)));
+      } else if (e.code == 'email-already-in-use') {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            elevation: 10,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20)),
+            content: (Text("The account already exists for that email",
+                style: GoogleFonts.roboto(
+                    fontSize: 19, color: kaccentColor))),
+            backgroundColor:
+                const Color.fromARGB(255, 165, 123, 32),
+            duration: const Duration(milliseconds: 900)));
+      }
     } catch (e) {
       print(e);
     }
-    return null;
   }
-
-  // FirebaseAuth auth = FirebaseAuth.instance;
-
-  Future<void> _signOut() async {
-    await auth.signOut();
-  }
-
-  //login user
-  // Future<User?> login(String email, String password){
-
-  // }
+  
 }
