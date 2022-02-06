@@ -131,7 +131,9 @@ class _RegisterState extends State<Register> {
                 padding: const EdgeInsets.only(
                     left: 70, right: 70, top: 20, bottom: 10),
                 child: CustomButton(func: () {
-                  
+                  if(email.text == ""){
+                    
+                  }
                 }, 
                 action: "Register"),
               ),
