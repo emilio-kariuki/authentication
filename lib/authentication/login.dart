@@ -20,16 +20,30 @@ class _LoginState extends State<Login> {
             padding: const EdgeInsets.all(8.0),
             child: Column(
         children: [
-            CustomBox(
-                func: () {
-                  setState(() {
-                    Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (context) => const Register()));
-                  });
-                },
-                iconUrl: 'assets/icons/register.png',
-                action: "Register"),
-            Text("Emilio",style: TextStyle(color: Colors.white)),
+            Row(
+              // mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left:16),
+                  child: CustomBox(
+                      func: () {
+                        setState(() {
+                          Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(builder: (context) => const Register()));
+                        });
+                      },
+                      iconUrl: 'assets/icons/register.png',
+                      action: "Register"),
+                ),
+              ],
+            ),
+            const Expanded(
+              child:  Divider(
+                thickness: 2,
+                height: 12,
+                color: kaccentColor,
+              ))
         ],
       ),
           )),
