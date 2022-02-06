@@ -43,11 +43,11 @@ class _RegisterState extends State<Register> {
                           setState(() {
                             Navigator.of(context).pushReplacement(
                                 MaterialPageRoute(
-                                    builder: (context) => const Register()));
+                                    builder: (context) => const Login()));
                           });
                         },
-                        iconUrl: 'assets/icons/register.png',
-                        action: "Register"),
+                        iconUrl: 'assets/icons/login.png',
+                        action: "Login"),
                   ),
                 ],
               ),
