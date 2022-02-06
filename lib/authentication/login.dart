@@ -1,6 +1,7 @@
 import 'package:authentication/Constants/colors.dart';
 import 'package:authentication/authentication/register.dart';
 import 'package:authentication/build/custom_box.dart';
+import 'package:authentication/build/custom_button.dart';
 import 'package:authentication/build/fields/custom_field.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_svg/flutter_svg.dart';
@@ -66,7 +67,7 @@ class _LoginState extends State<Login> {
               )),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
+              padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
               child: TextFormField(
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
@@ -99,6 +100,10 @@ class _LoginState extends State<Login> {
                 controller: name,
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.only(left:70,right:70,top: 40),
+              child: CustomButton(func: (){}, action: "Login"),
+            )
           ],
         ),
       )),
