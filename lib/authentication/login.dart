@@ -38,12 +38,22 @@ class _LoginState extends State<Login> {
                 ),
               ],
             ),
-            const Expanded(
-              child:  Divider(
-                thickness: 2,
-                height: 12,
-                color: kaccentColor,
-              ))
+            Row(
+              // ignore: prefer_const_literals_to_create_immutables
+              children: [
+                 Expanded(
+                  child:  Container(
+                    margin: const EdgeInsets.only(left: 15,right: 10),
+                    child: const Divider(
+                      thickness: 1,
+                      height: 50,
+                      color: kaccentColor,
+                    ),
+                  )),
+              ],
+            ),
+            
+
         ],
       ),
           )),
