@@ -8,7 +8,7 @@ class Auth {
   FirebaseAuth auth = FirebaseAuth.instance;
 
   //Register user
-  Future<User?> register(
+  Future register(
       String name, String email, String password, BuildContext context) async {
     try {
       UserCredential userCredential = await auth.createUserWithEmailAndPassword(
