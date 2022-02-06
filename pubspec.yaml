@@ -38,6 +38,10 @@ dependencies:
   flutter_svg: ^1.0.3
   firebase_auth: ^3.3.5
   firebase_auth_web: ^3.3.7
+  email_validator: ^2.0.1
+  
+  
+
 
 dev_dependencies:
   flutter_test:
