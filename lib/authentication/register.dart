@@ -133,7 +133,10 @@ class _RegisterState extends State<Register> {
                     left: 70, right: 70, top: 20, bottom: 10),
                 child: CustomButton(
                     func: () {
-                      if (email.text == "") {}
+                      validateTextField(email.text);
+                      validateTextField(name.text);
+                      validateTextField(password.text);
+
                     },
                     action: "Register"),
               ),
@@ -191,10 +194,16 @@ class _RegisterState extends State<Register> {
     );
   }
 
-  Future<String?> validateInput({required String value}) async {
-    if (!(value.length > 5) && value.isNotEmpty) {
-      return "No Empty fields allowed";
+  bool validateTextField(String userInput) {
+    if (userInput.isEmpty) {
+      setState(() {
+        isUserNameValidate = true;
+      });
+      return false;
     }
-    return null;
+    setState(() {
+      isUserNameValidate = false;
+    });
+    return true;
   }
 }
