@@ -86,7 +86,9 @@ class _RegisterState extends State<Register> {
                 padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
                 child: TextFormField(
                   decoration: InputDecoration(
+                    suffixIcon: IconButton(icon: Icon(Icons.close,color: kprimaryColor),onPressed: () => name.clear(),),
                       border: OutlineInputBorder(
+
                         borderRadius: BorderRadius.circular(30.0),
                       ),
                       // icon: Icon(Icons.person,size:30,color: Colors.black),
@@ -109,6 +111,7 @@ class _RegisterState extends State<Register> {
                           ? "Enter a valid Email"
                           : null,
                   decoration: InputDecoration(
+                    suffixIcon: IconButton(icon: Icon(Icons.close,color: kprimaryColor),onPressed: () => email.clear(),),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30.0),
                       ),
@@ -128,6 +131,7 @@ class _RegisterState extends State<Register> {
                 child: TextFormField(
                   controller: password,
                   decoration: InputDecoration(
+                    suffixIcon: IconButton(icon: Icon(Icons.close,color: kprimaryColor),onPressed: () => password.clear(),),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30.0),
                       ),
