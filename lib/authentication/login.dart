@@ -26,7 +26,9 @@ class _LoginState extends State<Login> {
                   });
                 },
                 iconUrl: 'assets/icons/register.png',
-                action: "Register")
+                action: "Register"),
+                
+            Text("Emilio",style: TextStyle(color: Colors.white)),
         ],
       ),
           )),
