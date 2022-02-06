@@ -57,17 +57,21 @@ class _LoginState extends State<Login> {
                 )),
               ],
             ),
-            Center(
-                child: SvgPicture.asset(
-              "assets/svg/login.svg",
-              height: mediaQuery.height * 0.2,
-            )),
             Padding(
-              padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+              padding: const EdgeInsets.only(bottom: 40),
+              child: Center(
+                  child: SvgPicture.asset(
+                "assets/svg/login.svg",
+                height: mediaQuery.height * 0.2,
+              )),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
               child: TextFormField(
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30.0),
+                      borderRadius: BorderRadius.circular(20.0),
                     ),
                     // icon: Icon(Icons.person,size:30,color: Colors.black),
                     filled: true,
