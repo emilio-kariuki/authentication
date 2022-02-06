@@ -4,6 +4,7 @@ import 'package:authentication/build/custom_box.dart';
 import 'package:authentication/build/custom_button.dart';
 import 'package:authentication/build/fields/build_circle.dart';
 import 'package:authentication/build/fields/custom_field.dart';
+import 'package:authentication/firebase.dart/auth.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -130,8 +131,7 @@ class _LoginState extends State<Login> {
                                   const Color.fromARGB(255, 165, 123, 32),
                               duration: const Duration(milliseconds: 900)));
                         } else {
-                          auth.signInWithEmailAndPassword(
-                              email: email.text, password: password.text);
+                          Auth().login(email.text, password.text, context);
                         }
                       });
                     },
