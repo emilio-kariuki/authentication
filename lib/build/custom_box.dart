@@ -23,7 +23,7 @@ class CustomBox extends StatelessWidget {
             // mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(action,style: GoogleFonts.robotoCondensed(fontSize: 12,color: Color.fromARGB(255, 17, 10, 48),fontWeight: FontWeight.bold)),
-              const SizedBox(width:10),
+              const SizedBox(width:6),
               Image.asset(iconUrl, color: Color.fromARGB(255, 17, 10, 48),height: 25,),
             ],
           ),
