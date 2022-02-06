@@ -232,7 +232,7 @@ class _RegisterState extends State<Register> {
                 ],
               ),
               FutureBuilder(
-                // future: Auth.initializeFirebase(context: context),
+                future: Auth.initializeFirebase(context: context),
                 builder: (context, snapshot) {
                   if (snapshot.hasError) {
                     return Text('Error initializing Firebase');

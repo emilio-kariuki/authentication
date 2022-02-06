@@ -1,6 +1,8 @@
-// ignore_for_file: avoid_print
+// ignore_for_file: avoid_print, prefer_const_constructors
 
 import 'package:authentication/Constants/colors.dart';
+import 'package:authentication/authentication/login.dart';
+import 'package:firebase_core/firebase_core.dart';
 import "package:flutter/material.dart";
 
 import "package:firebase_auth/firebase_auth.dart";
@@ -149,4 +151,21 @@ class Auth {
             duration: const Duration(milliseconds: 900)));
     }
   }
+  static Future<FirebaseApp> initializeFirebase({
+  required BuildContext context,
+}) async {
+  FirebaseApp firebaseApp = await Firebase.initializeApp();
+
+  User? user = FirebaseAuth.instance.currentUser;
+
+  if (user != null) {
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(
+        builder: (context) => Login(),
+      ),
+    );
+  }
+
+  return firebaseApp;
+}
 }
