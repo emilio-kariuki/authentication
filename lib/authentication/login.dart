@@ -132,7 +132,7 @@ class _LoginState extends State<Login> {
                       margin: const EdgeInsets.only(left: 15, right: 10),
                       child: const Divider(
                         thickness: 0.5,
-                        height: 50,
+                        height: 40,
                         color: kaccentColor,
                       ),
                     )),
