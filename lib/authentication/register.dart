@@ -121,6 +121,7 @@ class _RegisterState extends State<Register> {
                       hintStyle: TextStyle(color: Colors.grey[800]),
                       focusColor: Colors.red,
                       hintText: "Password",
+                      errorText: "error",
                       prefixIcon: const Icon(Icons.lock,
                           color: kprimaryColor, size: 20),
                       fillColor: Colors.grey[200]),
@@ -132,7 +133,7 @@ class _RegisterState extends State<Register> {
                     left: 70, right: 70, top: 20, bottom: 10),
                 child: CustomButton(func: () {
                   if(email.text == ""){
-                    
+
                   }
                 }, 
                 action: "Register"),
