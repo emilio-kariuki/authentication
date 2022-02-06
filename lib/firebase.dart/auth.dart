@@ -6,6 +6,7 @@ import "package:flutter/material.dart";
 import "package:firebase_auth/firebase_auth.dart";
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 class Auth {
   FirebaseAuth auth = FirebaseAuth.instance;
@@ -128,5 +129,24 @@ class Auth {
     }
 
     return user;
+  }
+  static Future<void> signOut({required BuildContext context}) async {
+    final GoogleSignIn googleSignIn = GoogleSignIn();
+
+    try {
+      if (!kIsWeb) {
+        await googleSignIn.signOut();
+      }
+      await FirebaseAuth.instance.signOut();
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            elevation: 10,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            content: (Text("Error signing out",
+                style: GoogleFonts.roboto(fontSize: 19, color: kaccentColor))),
+            backgroundColor: const Color.fromARGB(255, 165, 123, 32),
+            duration: const Duration(milliseconds: 900)));
+    }
   }
 }
