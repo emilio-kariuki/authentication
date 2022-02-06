@@ -1,10 +1,12 @@
-// ignore_for_file: unnecessary_const, prefer_const_constructors
+// ignore_for_file: unnecessary_const, prefer_const_constructors, unused_local_variable
 
 import 'package:authentication/Constants/colors.dart';
 import 'package:authentication/authentication/login.dart';
 import 'package:authentication/build/custom_box.dart';
 import 'package:authentication/build/custom_button.dart';
 import 'package:authentication/build/fields/build_circle.dart';
+import 'package:authentication/firebase.dart/auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -135,20 +137,36 @@ class _RegisterState extends State<Register> {
                 padding: const EdgeInsets.only(
                     left: 70, right: 70, top: 20, bottom: 10),
                 child: CustomButton(
-                    func: () {
-                      setState(() {
-                        if (name.text == ' ' &&
-                            email.text == " " &&
-                            password.text == " ") {
+                    func: () async{
+                      setState(() async {
+                        if (name.text == "" &&
+                            email.text == "" &&
+                            password.text == "") {
                           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                               elevation: 10,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20)),
                               content: (Text("The fields cannot be empty",
                                   style: GoogleFonts.roboto(
-                                      fontSize: 25, color: kaccentColor))),
-                              backgroundColor: Colors.red,
-                              duration: Duration(milliseconds: 600)));
+                                      fontSize: 19, color: kaccentColor))),
+                              backgroundColor: Color.fromARGB(255, 165, 123, 32),
+                              duration: Duration(milliseconds: 900)));
+                        }else {
+                          User? result = await Auth().register(email.text, password.text, name.text, context){
+                            if(result != null ){
+                              print("Success");
+                              print(result.email)
+                            }
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              elevation: 10,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20)),
+                              content: (Text("Account Created",
+                                  style: GoogleFonts.roboto(
+                                      fontSize: 19, color: kaccentColor))),
+                              backgroundColor: Color.fromARGB(255, 165, 123, 32),
+                              duration: Duration(milliseconds: 900)));
+                          } ;
                         }
                       });
                       print("Clicked");
