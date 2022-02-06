@@ -66,11 +66,11 @@ class _RegisterState extends State<Register> {
                   )),
                 ],
               ),
-             Text("Sign Up",
+              Text("Sign Up",
                   style: GoogleFonts.robotoCondensed(
                       fontSize: 23, color: Colors.white)),
               Padding(
-                padding: const EdgeInsets.only(bottom: 20,top:10),
+                padding: const EdgeInsets.only(bottom: 20, top: 10),
                 child: Center(
                     child: SvgPicture.asset(
                   "assets/svg/signup.svg",
@@ -136,10 +136,17 @@ class _RegisterState extends State<Register> {
                     left: 70, right: 70, top: 20, bottom: 10),
                 child: CustomButton(
                     func: () {
-                      validateTextField(email.text);
-                      validateTextField(name.text);
-                      validateTextField(password.text);
-
+                      if (name.text == ' ' &&
+                          email.text == " " &&
+                          password.text == " ") {
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          
+                            content: (Text("The fields cannot be empty",
+                                style: GoogleFonts.roboto(
+                                    fontSize: 25, color: kaccentColor))),
+                            backgroundColor: Colors.red,
+                            duration: Duration(milliseconds: 600)));
+                      }
                     },
                     action: "Register"),
               ),
@@ -195,18 +202,5 @@ class _RegisterState extends State<Register> {
         ),
       )),
     );
-  }
-
-  bool validateTextField(String userInput) {
-    if (userInput.isEmpty) {
-      setState(() {
-        isUserNameValidate = true;
-      });
-      return false;
-    }
-    setState(() {
-      isUserNameValidate = false;
-    });
-    return true;
   }
 }
