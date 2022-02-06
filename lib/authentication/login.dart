@@ -76,7 +76,7 @@ class _LoginState extends State<Login> {
                 child: TextFormField(
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20.0),
+                        borderRadius: BorderRadius.circular(30.0),
                       ),
                       // icon: Icon(Icons.person,size:30,color: Colors.black),
                       filled: true,
@@ -93,7 +93,7 @@ class _LoginState extends State<Login> {
                 child: TextFormField(
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20.0),
+                        borderRadius: BorderRadius.circular(30.0),
                       ),
                       // icon: Icon(Icons.person,size:30,color: Colors.black),
                       filled: true,

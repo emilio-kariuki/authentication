@@ -13,14 +13,14 @@ class BuildCircle extends StatelessWidget {
       child: Container(
         height: 45,
         width: 45,
-        padding: const EdgeInsets.all(15),
+        padding: const EdgeInsets.all(10),
         margin: const EdgeInsets.symmetric(horizontal: 10),
         // ignore: prefer_const_constructors
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           border: Border.all(width: 1,color: kaccentColor)
         ),
-        child: SvgPicture.asset(svgUrl,height: 20,width: 20),
+        child: SvgPicture.asset(svgUrl,height: 30,width: 30),
       ),
     );
   }
