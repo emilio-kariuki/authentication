@@ -66,11 +66,11 @@ class _RegisterState extends State<Register> {
                   )),
                 ],
               ),
-             Text("Sign Up",
+              Text("Sign Up",
                   style: GoogleFonts.robotoCondensed(
                       fontSize: 23, color: Colors.white)),
               Padding(
-                padding: const EdgeInsets.only(bottom: 20,top:10),
+                padding: const EdgeInsets.only(bottom: 20, top: 10),
                 child: Center(
                     child: SvgPicture.asset(
                   "assets/svg/signup.svg",
@@ -137,19 +137,21 @@ class _RegisterState extends State<Register> {
                 child: CustomButton(
                     func: () {
                       setState(() {
-                          if (name.text == ' ' &&
-                          email.text == " " &&
-                          password.text == " ") {
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                          elevation: 10,
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                            content: (Text("The fields cannot be empty",
-                                style: GoogleFonts.roboto(
-                                    fontSize: 25, color: kaccentColor))),
-                            backgroundColor: Colors.red,
-                            duration: Duration(milliseconds: 600)));
-                      }
+                        if (name.text == ' ' &&
+                            email.text == " " &&
+                            password.text == " ") {
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              elevation: 10,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20)),
+                              content: (Text("The fields cannot be empty",
+                                  style: GoogleFonts.roboto(
+                                      fontSize: 25, color: kaccentColor))),
+                              backgroundColor: Colors.red,
+                              duration: Duration(milliseconds: 600)));
+                        }
                       });
+                      print("Clicked");
                     },
                     action: "Register"),
               ),
