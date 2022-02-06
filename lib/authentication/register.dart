@@ -1,4 +1,4 @@
-// ignore_for_file: unnecessary_const, prefer_const_constructors, unused_local_variable
+// ignore_for_file: unnecessary_const, prefer_const_constructors, unused_local_variable, avoid_print
 
 import 'package:authentication/Constants/colors.dart';
 import 'package:authentication/authentication/login.dart';
@@ -154,8 +154,8 @@ class _RegisterState extends State<Register> {
                                   Color.fromARGB(255, 165, 123, 32),
                               duration: Duration(milliseconds: 900)));
                         } else {
-                          auth.createUserWithEmailAndPassword(
-                              email: email.text, password: password.text);
+                          Auth().register(email.text, password.text, context);
+                          print("successful");
                         }
                       });
                       print("Clicked");

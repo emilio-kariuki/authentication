@@ -9,15 +9,17 @@ class Auth {
 
   //Register user
   Future register(
-      String name, String email, String password, BuildContext context) async {
+      String email, String password, BuildContext context) async {
     try {
-      UserCredential userCredential = await auth.createUserWithEmailAndPassword(
-          email: email, password: password);
-      return userCredential.user;
+      UserCredential userCredential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(email: email, password: password);
+      return userCredential;
     } on FirebaseAuthException catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(e.message.toString()),
-          duration: const Duration(milliseconds: 600)));
+      if (e.code == 'weak-password') {
+        print('The password provided is too weak.');
+      } else if (e.code == 'email-already-in-use') {
+        print('The account already exists for that email.');
+      }
     } catch (e) {
       print(e);
     }
