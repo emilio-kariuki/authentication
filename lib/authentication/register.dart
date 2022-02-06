@@ -112,6 +112,7 @@ class _RegisterState extends State<Register> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
                 child: TextFormField(
+                  controller: password,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30.0),
@@ -121,22 +122,19 @@ class _RegisterState extends State<Register> {
                       hintStyle: TextStyle(color: Colors.grey[800]),
                       focusColor: Colors.red,
                       hintText: "Password",
-                      errorText: "error",
                       prefixIcon: const Icon(Icons.lock,
                           color: kprimaryColor, size: 20),
                       fillColor: Colors.grey[200]),
-                  controller: password,
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(
                     left: 70, right: 70, top: 20, bottom: 10),
-                child: CustomButton(func: () {
-                  if(email.text == ""){
-
-                  }
-                }, 
-                action: "Register"),
+                child: CustomButton(
+                    func: () {
+                      if (email.text == "") {}
+                    },
+                    action: "Register"),
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 10),
@@ -171,9 +169,18 @@ class _RegisterState extends State<Register> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 // ignore: prefer_const_literals_to_create_immutables
                 children: [
-                   BuildCircle(svgUrl: "assets/svg/google.svg", func: () {  },),
-                   BuildCircle(svgUrl: "assets/svg/facebook-main.svg", func: () {  },),
-                   BuildCircle(svgUrl: "assets/svg/twitter-main.svg", func: () {  },)
+                  BuildCircle(
+                    svgUrl: "assets/svg/google.svg",
+                    func: () {},
+                  ),
+                  BuildCircle(
+                    svgUrl: "assets/svg/facebook-main.svg",
+                    func: () {},
+                  ),
+                  BuildCircle(
+                    svgUrl: "assets/svg/twitter-main.svg",
+                    func: () {},
+                  )
                 ],
               ),
             ],
@@ -181,5 +188,12 @@ class _RegisterState extends State<Register> {
         ),
       )),
     );
+  }
+
+  Future<String?> validateInput({required String value}) async {
+    if (!(value.length > 5) && value.isNotEmpty) {
+      return "No Empty fields allowed";
+    }
+    return null;
   }
 }
