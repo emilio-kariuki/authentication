@@ -161,8 +161,12 @@ class _RegisterState extends State<Register> {
                                   Color.fromARGB(255, 165, 123, 32),
                               duration: Duration(milliseconds: 900)));
                         } else {
-                          Auth().register(email.text, password.text, context);
-                          print("successful");
+                          final form = formKey.currentState!;
+
+                          if(form.validate()){
+                            Auth().register(email.text, password.text, context);
+                            print("successful");
+                          }
                         }
                       });
                       print("Clicked");
