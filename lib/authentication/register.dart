@@ -141,7 +141,6 @@ class _RegisterState extends State<Register> {
                           password.text == " ") {
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                           elevation: 10,
-                          
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                             content: (Text("The fields cannot be empty",
                                 style: GoogleFonts.roboto(
