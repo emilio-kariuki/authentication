@@ -23,6 +23,7 @@ class _RegisterState extends State<Register> {
   final email = TextEditingController();
   final password = TextEditingController();
   bool isUserNameValidate = false;
+  FirebaseAuth auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -137,7 +138,7 @@ class _RegisterState extends State<Register> {
                 padding: const EdgeInsets.only(
                     left: 70, right: 70, top: 20, bottom: 10),
                 child: CustomButton(
-                    func: () async{
+                    func: () async {
                       setState(() async {
                         if (name.text == "" &&
                             email.text == "" &&
@@ -149,24 +150,12 @@ class _RegisterState extends State<Register> {
                               content: (Text("The fields cannot be empty",
                                   style: GoogleFonts.roboto(
                                       fontSize: 19, color: kaccentColor))),
-                              backgroundColor: Color.fromARGB(255, 165, 123, 32),
+                              backgroundColor:
+                                  Color.fromARGB(255, 165, 123, 32),
                               duration: Duration(milliseconds: 900)));
-                        }else {
-                          User? result = await Auth().register(email.text, password.text, name.text, context){
-                            if(result != null ){
-                              print("Success");
-                              print(result.email)
-                            }
-                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                              elevation: 10,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20)),
-                              content: (Text("Account Created",
-                                  style: GoogleFonts.roboto(
-                                      fontSize: 19, color: kaccentColor))),
-                              backgroundColor: Color.fromARGB(255, 165, 123, 32),
-                              duration: Duration(milliseconds: 900)));
-                          } ;
+                        } else {
+                          auth.createUserWithEmailAndPassword(
+                              email: email.text, password: password.text);
                         }
                       });
                       print("Clicked");
