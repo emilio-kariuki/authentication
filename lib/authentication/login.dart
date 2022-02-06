@@ -57,14 +57,17 @@ class _LoginState extends State<Login> {
                     margin: const EdgeInsets.only(left: 15, right: 10),
                     child: const Divider(
                       thickness: 0.5,
-                      height: 50,
+                      height: 40,
                       color: kaccentColor,
                     ),
                   )),
                 ],
               ),
+              Text("Login",
+                  style: GoogleFonts.robotoCondensed(
+                      fontSize: 23, color: Colors.white)),
               Padding(
-                padding: const EdgeInsets.only(bottom: 40),
+                padding: const EdgeInsets.only(bottom: 40,top: 10),
                 child: Center(
                     child: SvgPicture.asset(
                   "assets/svg/login.svg",

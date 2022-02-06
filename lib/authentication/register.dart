@@ -66,8 +66,11 @@ class _RegisterState extends State<Register> {
                   )),
                 ],
               ),
+             Text("Sign Up",
+                  style: GoogleFonts.robotoCondensed(
+                      fontSize: 23, color: Colors.white)),
               Padding(
-                padding: const EdgeInsets.only(bottom: 20),
+                padding: const EdgeInsets.only(bottom: 20,top:10),
                 child: Center(
                     child: SvgPicture.asset(
                   "assets/svg/signup.svg",
