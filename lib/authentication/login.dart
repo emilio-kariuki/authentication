@@ -45,7 +45,7 @@ class _LoginState extends State<Login> {
                           });
                         },
                         iconUrl: 'assets/icons/register.png',
-                        action: "Register"),
+                        action: "Login"),
                   ),
                 ],
               ),
@@ -140,9 +140,9 @@ class _LoginState extends State<Login> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 // ignore: prefer_const_literals_to_create_immutables
                 children: [
-                  const BuildCircle(svgUrl: "assets/svg/google.svg"),
-                  const BuildCircle(svgUrl: "assets/svg/facebook-main.svg"),
-                  const BuildCircle(svgUrl: "assets/svg/twitter-main.svg")
+                   BuildCircle(svgUrl: "assets/svg/google.svg", func: () {  },),
+                   BuildCircle(svgUrl: "assets/svg/facebook-main.svg", func: () {  },),
+                   BuildCircle(svgUrl: "assets/svg/twitter-main.svg", func: () {  },)
                 ],
               ),
               
