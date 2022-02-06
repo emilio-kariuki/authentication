@@ -1,6 +1,7 @@
 // ignore_for_file: unnecessary_const, prefer_const_constructors, unused_local_variable, avoid_print
 
 import 'package:authentication/Constants/colors.dart';
+import 'package:authentication/authentication/googleSignInButton.dart';
 import 'package:authentication/authentication/login.dart';
 import 'package:authentication/build/custom_box.dart';
 import 'package:authentication/build/custom_button.dart';
@@ -220,10 +221,27 @@ class _RegisterState extends State<Register> {
                   )
                 ],
               ),
+              FutureBuilder(
+                // future: Auth.initializeFirebase(context: context),
+                builder: (context, snapshot) {
+                  if (snapshot.hasError) {
+                    return Text('Error initializing Firebase');
+                  } else if (snapshot.connectionState == ConnectionState.done) {
+                    return GoogleSignInButton();
+                  }
+                  return CircularProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                      Colors.red,
+                    ),
+                  );
+                },
+              ),
             ],
+            
           ),
         ),
       )),
+      
     );
   }
 
