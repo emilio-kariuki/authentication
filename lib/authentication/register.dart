@@ -66,15 +66,15 @@ class _RegisterState extends State<Register> {
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.only(bottom: 40),
+                padding: const EdgeInsets.only(bottom: 20),
                 child: Center(
                     child: SvgPicture.asset(
-                  "assets/svg/sign.svg",
+                  "assets/svg/signup.svg",
                   height: mediaQuery.height * 0.3,
                 )),
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
+                padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
                 child: TextFormField(
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -85,14 +85,14 @@ class _RegisterState extends State<Register> {
                       hintStyle: TextStyle(color: Colors.grey[800]),
                       focusColor: Colors.red,
                       hintText: "Username",
-                      prefixIcon: const Icon(Icons.person_add,
+                      prefixIcon: const Icon(Icons.person,
                           color: kprimaryColor, size: 20),
                       fillColor: Colors.grey[200]),
                   controller: name,
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
+                padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
                 child: TextFormField(
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -129,7 +129,7 @@ class _RegisterState extends State<Register> {
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                    left: 70, right: 70, top: 40, bottom: 10),
+                    left: 70, right: 70, top: 20, bottom: 10),
                 child: CustomButton(func: () {}, action: "Login"),
               ),
               Padding(
