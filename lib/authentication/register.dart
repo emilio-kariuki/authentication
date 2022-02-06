@@ -146,30 +146,30 @@ class _RegisterState extends State<Register> {
                     left: 70, right: 70, top: 20, bottom: 10),
                 child: CustomButton(
                     func: () async {
-                      setState(() async {
-                        if (name.text == "" &&
-                            email.text == "" &&
-                            password.text == "") {
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                              elevation: 10,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20)),
-                              content: (Text("The fields cannot be empty",
-                                  style: GoogleFonts.roboto(
-                                      fontSize: 19, color: kaccentColor))),
-                              backgroundColor:
-                                  Color.fromARGB(255, 165, 123, 32),
-                              duration: Duration(milliseconds: 900)));
-                        } else {
-                          final form = formKey.currentState!;
+                      final form = formKey.currentState!;
 
-                          if(form.validate()){
+                      if (form.validate()) {
+                        setState(() async {
+                          if (name.text == "" &&
+                              email.text == "" &&
+                              password.text == "") {
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                elevation: 10,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20)),
+                                content: (Text("The fields cannot be empty",
+                                    style: GoogleFonts.roboto(
+                                        fontSize: 19, color: kaccentColor))),
+                                backgroundColor:
+                                    Color.fromARGB(255, 165, 123, 32),
+                                duration: Duration(milliseconds: 900)));
+                          } else {
                             Auth().register(email.text, password.text, context);
                             print("successful");
                           }
-                        }
-                      });
-                      print("Clicked");
+                        });
+                        print("Clicked");
+                      }
                     },
                     action: "Register"),
               ),
