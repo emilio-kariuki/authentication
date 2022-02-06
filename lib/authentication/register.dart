@@ -10,8 +10,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-
+import 'package:email_validator/email_validator.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -26,6 +25,7 @@ class _RegisterState extends State<Register> {
   final password = TextEditingController();
   bool isUserNameValidate = false;
   FirebaseAuth auth = FirebaseAuth.instance;
+  final formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -103,6 +103,11 @@ class _RegisterState extends State<Register> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
                 child: TextFormField(
+                  key: formKey,
+                  validator: (email) =>
+                      email != null && !EmailValidator.validate(email)
+                          ? "Enter a valid Email"
+                          : null,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30.0),
