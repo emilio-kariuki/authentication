@@ -5,6 +5,7 @@ import 'package:authentication/build/custom_button.dart';
 import 'package:authentication/build/fields/custom_field.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -51,7 +52,7 @@ class _LoginState extends State<Login> {
                     child: Container(
                   margin: const EdgeInsets.only(left: 15, right: 10),
                   child: const Divider(
-                    thickness: 1,
+                    thickness: 0.5,
                     height: 50,
                     color: kaccentColor,
                   ),
@@ -103,7 +104,31 @@ class _LoginState extends State<Login> {
             Padding(
               padding: const EdgeInsets.only(left:70,right:70,top: 40),
               child: CustomButton(func: (){}, action: "Login"),
-            )
+            ),
+            Row(
+              // ignore: prefer_const_literals_to_create_immutables
+              children: [
+                Expanded(
+                    child: Container(
+                  margin: const EdgeInsets.only(left: 15, right: 10),
+                  child: const Divider(
+                    thickness: 0.5,
+                    height: 50,
+                    color: kaccentColor,
+                  ),
+                )),
+                Text("OR",style: GoogleFonts.roboto(fontSize: 20,color: kaccentColor)),
+                Expanded(
+                    child: Container(
+                  margin: const EdgeInsets.only(left: 15, right: 10),
+                  child: const Divider(
+                    thickness: 0.5,
+                    height: 50,
+                    color: kaccentColor,
+                  ),
+                )),
+              ],
+            ),
           ],
         ),
       )),
