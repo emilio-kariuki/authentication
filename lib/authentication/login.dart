@@ -13,6 +13,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  final name = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context).size;
@@ -56,8 +57,28 @@ class _LoginState extends State<Login> {
                 )),
               ],
             ),
-            Center(child: SvgPicture.asset("assets/svg/login.svg",height: mediaQuery.height * 0.2,)),
-            CustomField( iconUrl: "assets/icons/person.png")
+            Center(
+                child: SvgPicture.asset(
+              "assets/svg/login.svg",
+              height: mediaQuery.height * 0.2,
+            )),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+              child: TextFormField(
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                    // icon: Icon(Icons.person,size:30,color: Colors.black),
+                    filled: true,
+                    hintStyle: TextStyle(color: Colors.grey[800]),
+                    focusColor: Colors.red,
+                    hintText: "Email",
+                    prefixIcon: Icon(Icons.mail, color: Colors.blueGrey[900]),
+                    fillColor: Colors.grey[200]),
+                controller: name,
+              ),
+            ),
           ],
         ),
       )),
