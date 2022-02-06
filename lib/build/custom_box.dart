@@ -20,10 +20,11 @@ class CustomBox extends StatelessWidget {
         child: BuildContainer(
           color: kaccentColor,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(action,style: GoogleFonts.robotoCondensed(fontSize: 12,color: Colors.white,fontWeight: FontWeight.bold)),
-              Image.asset(iconUrl, color: Colors.white,height: 25,),
+              Text(action,style: GoogleFonts.robotoCondensed(fontSize: 12,color: Color.fromARGB(255, 17, 10, 48),fontWeight: FontWeight.bold)),
+              const SizedBox(width:10),
+              Image.asset(iconUrl, color: Color.fromARGB(255, 17, 10, 48),height: 25,),
             ],
           ),
         ),
