@@ -137,9 +137,18 @@ class _RegisterState extends State<Register> {
                 child: CustomButton(
                     func: () {
                       setState(() {
-                          validateTextField(email.text);
-                          validateTextField(name.text);
-                          validateTextField(password.text);
+                          if (name.text == ' ' &&
+                          email.text == " " &&
+                          password.text == " ") {
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          elevation: 10,
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                            content: (Text("The fields cannot be empty",
+                                style: GoogleFonts.roboto(
+                                    fontSize: 25, color: kaccentColor))),
+                            backgroundColor: Colors.red,
+                            duration: Duration(milliseconds: 600)));
+                      }
                       });
                     },
                     action: "Register"),
