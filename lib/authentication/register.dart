@@ -1,7 +1,6 @@
 // ignore_for_file: unnecessary_const, prefer_const_constructors, unused_local_variable, avoid_print
 
 import 'package:authentication/Constants/colors.dart';
-import 'package:authentication/authentication/googleSignInButton.dart';
 import 'package:authentication/authentication/login.dart';
 import 'package:authentication/build/custom_box.dart';
 import 'package:authentication/build/custom_button.dart';
@@ -12,6 +11,7 @@ import "package:flutter/material.dart";
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -21,6 +21,7 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+  GoogleSignIn googleSignIn = GoogleSignIn(scopes: ["email"]);
   final name = TextEditingController();
   final email = TextEditingController();
   final password = TextEditingController();
@@ -30,6 +31,7 @@ class _RegisterState extends State<Register> {
 
   @override
   Widget build(BuildContext context) {
+    GoogleSignInAccount? user = googleSignIn.currentUser;
     final mediaQuery = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: kprimaryColor,
@@ -217,8 +219,11 @@ class _RegisterState extends State<Register> {
                 children: [
                   BuildCircle(
                     svgUrl: "assets/svg/google.svg",
-                    func: () {
-                      Auth.signInWithGoogle(context: context);
+                    func: () async {
+                      await googleSignIn.signIn();
+                      setState(() {
+                        
+                      });
                     },
                   ),
                   BuildCircle(
@@ -230,21 +235,6 @@ class _RegisterState extends State<Register> {
                     func: () {},
                   )
                 ],
-              ),
-              FutureBuilder(
-                future: Auth.initializeFirebase(context: context),
-                builder: (context, snapshot) {
-                  if (snapshot.hasError) {
-                    return Text('Error initializing Firebase');
-                  } else if (snapshot.connectionState == ConnectionState.done) {
-                    return GoogleSignInButton();
-                  }
-                  return CircularProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation<Color>(
-                      Colors.red,
-                    ),
-                  );
-                },
               ),
             ],
           ),
