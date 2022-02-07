@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print, prefer_const_constructors
+// ignore_for_file: avoid_print, prefer_const_constructors, unused_import
 
 import 'package:authentication/Constants/colors.dart';
 import 'package:authentication/authentication/login.dart';

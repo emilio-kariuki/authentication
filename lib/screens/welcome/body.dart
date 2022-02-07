@@ -2,6 +2,7 @@
 
 import 'package:authentication/Constants/colors.dart';
 import "package:flutter/material.dart";
+// ignore: unused_import
 import 'package:flutter_svg/flutter_svg.dart';
 
 class BackGround extends StatelessWidget {

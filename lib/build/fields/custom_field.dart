@@ -12,6 +12,7 @@ class CustomField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     final mediaQuery = MediaQuery.of(context).size;
     return Container(
       child: BuildField(

@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'package:authentication/Constants/colors.dart';
 import 'package:authentication/authentication/register.dart';
 import 'package:authentication/build/custom_box.dart';
